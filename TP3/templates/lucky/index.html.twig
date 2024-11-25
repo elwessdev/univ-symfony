@@ -1,0 +1,7 @@
+<p>Your lucky Number is <span id="num">{{number}}</span></p>
+<button onClick="Generate()">Generate</button>
+<script>
+    function Generate(){
+        document.getElementById("num").innerText = Math.floor(Math.random()*100);
+    }
+</script>
