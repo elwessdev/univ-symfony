@@ -1,0 +1,77 @@
+{# templates/livre/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Livre - Liste{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        thead {
+            border-bottom: 2px solid #ccc;
+        }
+        h1 {
+            margin-bottom: 15px;
+        }
+        a {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h1>Liste des livres</h1>
+    <a href="{{ path('app_livre_ajouter') }}">Ajouter un livre</a>
+    {% if livres is not empty %}
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Auteur</th>
+                    <th>Date de Publication</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for livre in livres %}
+                    <tr>
+                        <td>{{ livre.Titre }}</td>
+                        <td>{{ livre.Auteur }}</td>
+                        {# <td>{{ livre.Description }}</td> #}
+                        <td>{{ livre.getDateDePublication()|date('Y-m-d') }}</td>
+                        <td>
+                            <a href="{{path('app_livre_details',{id: livre.id})}}">Details</a>
+                            <a href="{{path('app_livre_supprimer',{id: livre.id})}}">Supprime</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun livre n'est disponible pour l'instant.</p>
+    {% endif %}
+{% endblock %}

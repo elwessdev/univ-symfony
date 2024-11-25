@@ -1,0 +1,63 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <style>
+        
+        a{
+            padding: 10px 20px;
+            background: #673AB7;
+            border: 1px solid #4600ff;
+            display: flex;
+            width: fit-content;
+            text-decoration: none;
+            border-radius: 3px;
+            color: #FFF;
+            font-size: 13px;
+            font-weight: 700;
+            margin: 0 auto;
+            margin-top: 15px;
+        }
+        form{
+            width: 300px;
+            margin: 0 auto;
+            background: #e2e2e2;
+            padding: 30px;
+        }
+        input{
+            width: 100%;
+            height: 36px;
+            margin-bottom: 7px;
+            border-radius: 2px;
+            outline: none;
+            border: 1px solid #673AB7;
+            font-size: 15px;
+            text-indent: 5px;
+        }
+        form button{
+            padding: 10px 20px;
+            background: #673AB7;
+            border: 1px solid #4600ff;
+            display: flex;
+            width: fit-content;
+            text-decoration: none;
+            border-radius: 3px;
+            color: #FFF;
+            font-size: 13px;
+            font-weight: 700;
+            margin: 0 auto;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<form method="POST">
+    <input type="text" name="titre" placeholder="Enter titre" />
+    <input type="text" name="realisateur" placeholder="Enter realisateur" />
+    <input type="date" name="date_sortie"/>
+    <input type="text" name="genre" placeholder="Enter genre" />
+    <button>Add</button>
+</form>
+<a href="{{path('app_films')}}">Go to home</a>
+
+
+{% endblock %}

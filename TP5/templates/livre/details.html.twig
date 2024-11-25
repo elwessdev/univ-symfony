@@ -1,0 +1,35 @@
+{# templates/livre/details_livre.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Livre - Details{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .book-details-container{display:flex;justify-content:center;align-items:center;min-height:100vh;background-color:#f4f6f9;}
+        .book-details{max-width:500px;width:100%;padding:30px;background-color:#fff;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+        h1{text-align:center;margin-bottom:20px;color:#333;}
+        .book-info{margin-bottom:15px;font-size:16px;color:#555;}
+        .book-info strong{color:#222;}
+        .description{font-size:15px;color:#666;line-height:1.6;margin-top:10px;}
+        .back-link{text-align:center;margin-top:20px;display:inline-block;text-decoration:none;color:#007bff;font-size:16px;}
+        .back-link:hover{text-decoration:underline;color:#0056b3;}
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="book-details-container">
+        <div class="book-details">
+            <h1>Détails du Livre {{ livre.Titre }}</h1>
+            <div class="book-info">
+                <strong>Titre:</strong> {{ livre.Titre }}<br>
+                <strong>Auteur:</strong> {{ livre.Auteur }}<br>
+                <strong>Date de Publication:</strong> {{ livre.getDateDePublication()|date('Y-m-d') }}<br>
+            </div>
+            <div class="description">
+                <strong>Description:</strong>
+                <p>{{ livre.Description }}</p>
+            </div>
+            <a href="{{ path('app_livre_liste') }}" class="back-link">Retour à la liste</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{# templates/livre/ajouter.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Livre - Ajouter{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        form {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: vertical;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un livre</h1>
+    <form method="post">
+        <input type="text" name="titre" placeholder="Titre" required>
+        <input type="text" name="auteur" placeholder="Auteur" required>
+        <textarea name="description" placeholder="Description"></textarea>
+        <input type="date" name="datePublication" required>
+        <button type="submit">Ajouter</button>
+    </form>
+{% endblock %}
